@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import {useNavigate, useSearchParams} from "react-router-dom";
+import { FC } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import styles from './Header.module.scss';
 import ButtonPrimary from "../../ui-items/Buttons/ButtonPrimary/ButtonPrimary";

@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import { SECRET_KEY } from '../data.js';
 
 const checkAuth = (req, res, next) => {
   const tokenWithBearer = req.headers.authorization || '';
@@ -11,7 +12,7 @@ const checkAuth = (req, res, next) => {
   }
 
   try {
-    const decodedToken = jwt.verify(pureToken, 'secret-projects');
+    const decodedToken = jwt.verify(pureToken, SECRET_KEY);
     req.userId = decodedToken._id;
     next();
   } catch (err) {

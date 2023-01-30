@@ -8,3 +8,9 @@ export interface IProject {
 }
 
 export type IProjectWithId = IProject & {_id: string};
+
+export interface IProjectDto {
+    title: string;
+    description: string;
+    date?: string;
+}

@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { IProjectWithId } from "../../../types/project.types";
+import {IProjectDto, IProjectWithId} from "../../../types/project.types";
 
 import styles from "./Item.module.scss";
 
@@ -9,7 +9,7 @@ import ProjectForm from "../ProjectForm/ProjectForm";
 interface Props {
     project: IProjectWithId;
     projects: IProjectWithId[];
-    updateProjectHandler: (project: {title: string, description: string}, id: string) => void;
+    updateProjectHandler: (project: IProjectDto, id?: string | undefined) => void;
     removeProjectHandler: (id: string) => void;
 }
 

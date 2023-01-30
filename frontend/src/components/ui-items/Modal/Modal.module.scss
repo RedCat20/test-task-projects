@@ -17,7 +17,6 @@
 
 .modal {
   width: 440px;
-  // min-height: 384px;
 
   background: #FFFFFF;
   border-radius: 5px;
@@ -39,17 +38,4 @@
 
     cursor: pointer;
   }
-}
-
-.content {
-  padding: calc(20px - 12px) 40px 40px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.bottom {
-  display: flex;
-  justify-content: flex-end;
 }

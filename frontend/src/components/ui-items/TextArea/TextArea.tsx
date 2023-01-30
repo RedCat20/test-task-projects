@@ -1,17 +1,17 @@
-import React, {ChangeEvent, FC} from 'react';
+import { ChangeEvent, FC } from 'react';
+
+import { IStyle } from "../../../types/style.types";
 import styles from './TextArea.module.scss';
-import {IStyle} from "../../../types/style.types";
 
 interface Props {
     title?: string;
-    placeholder?: string;
     value?: string;
     onChangeValueCallback?: (newValue: string) => void;
     fullWidth?: boolean;
     marginBottom?: number;
 }
 
-const TextArea:FC<Props> = ({title,placeholder,value,onChangeValueCallback,fullWidth, marginBottom}) => {
+const TextArea:FC<Props> = ({title,value,onChangeValueCallback,fullWidth, marginBottom}) => {
     const createStyle = ():IStyle => ({
         marginBottom: `${marginBottom ?? 0}px`,
         width: fullWidth ? '100%' : 'auto',

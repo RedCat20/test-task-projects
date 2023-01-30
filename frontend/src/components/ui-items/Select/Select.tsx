@@ -1,18 +1,17 @@
 import { FC, useEffect, useState } from 'react';
+import { ISelectOption } from "../../../types/form.select.types";
+
 import styles from './Select.module.scss';
 import collapseIcon from '../../../assets/images/collpase.svg';
-import { ISelectOption } from "../../../types/form.select.types";
 
 interface Props {
     options: ISelectOption[];
     defaultValue: string;
-    fullWidth?: boolean;
     changeCallback?: any;
-
     value?: string;
 }
 
-const Select:FC<Props> = ({defaultValue,fullWidth,options,changeCallback,value}) => {
+const Select:FC<Props> = ({defaultValue,options,changeCallback,value}) => {
 
     const [isCollapsed, setIsCollapsed] = useState(false);
 

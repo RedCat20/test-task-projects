@@ -12,5 +12,4 @@ export const FILTERS: ISelectOption[] = [
     { id: 1, value: 'all', text: 'All' },
     { id: 2, value: getCurrentDate(), text:  getCurrentDate() },
     { id: 3, value: getYesterdayDate(), text: getYesterdayDate()},
-    // { id: 2, value: '29/01/2023', text: '29/01/2023' },
 ];

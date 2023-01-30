@@ -1,11 +1,12 @@
 import { FC } from 'react';
-import { IProjectWithId } from "../../../types/project.types";
+import { IProjectDto, IProjectWithId } from "../../../types/project.types";
+
 import styles from "./ProjectList.module.scss";
 import Item from "../Item/Item";
 
 interface Props {
     projects: IProjectWithId[] | null;
-    updateProjectHandler: (project: {title: string, description: string}, id: string) => void;
+    updateProjectHandler: (project: IProjectDto, id: string | undefined) => void;
     removeProjectHandler: (id: string) => void;
 }
 
@@ -14,9 +15,7 @@ const ProjectList:FC<Props> = ({projects, updateProjectHandler, removeProjectHan
     return (
         <div className={styles.list}>
 
-            {!projects && <div>Loading....</div>}
-
-            {projects?.length === 0 && <div>No data with selected params</div>}
+            {projects?.length === 0 && <div> Loading... No data with selected params. You can add it.</div>}
 
             {projects && projects?.length > 0 && projects.map((project: IProjectWithId, idx, array) => {
                 return (

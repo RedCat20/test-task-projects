@@ -9,9 +9,6 @@ export const projectValidator = [
     .isString()
     .isLength({ min: 10, max: 10 }),
 
-  // body('description','Incorrect description length')
-    // .isLength({ min: 3 }),
-
   body('user','Incorrect user id')
     .notEmpty()
 ]

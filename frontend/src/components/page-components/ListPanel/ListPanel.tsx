@@ -10,10 +10,11 @@ import styles from "./ListPanel.module.scss";
 import plusIcon from "../../../assets/images/plus.svg";
 import { FILTERS, SORTS } from "../../../data/option.selects.data";
 import ProjectForm from "../ProjectForm/ProjectForm";
-import {useDebounce} from "../../../hooks/useDebounce";
+import { useDebounce} from "../../../hooks/useDebounce";
+import { IProjectDto } from "../../../types/project.types";
 
 interface Props {
-    addProjectHandler: any;
+    addProjectHandler: ( {title, description, date}: IProjectDto, id?: string | undefined) => any;
 }
 
 const ListPanel:FC<Props> = ({addProjectHandler}) => {

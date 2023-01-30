@@ -21,6 +21,6 @@ app.get('/', (req, res) => {
 app.use(UsersRoutes);
 app.use(ProjectsRoutes);
 
-app.listen(PORT,() => {
-    console.log(`Server is running on ${PORT}`)
+app.listen(PORT,(err) => {
+    console.log(err ? `Starting server error: ${err}` : `Server is running on ${PORT}`)
 });

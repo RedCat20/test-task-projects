@@ -1,29 +1,32 @@
-import {useEffect, useState} from "react";
-import {UsersApi} from "../api/users.api";
-
+import { useEffect, useState } from "react";
+import { UsersApi } from "../api/users.api";
+import { LOADED_STATES } from "../data/loaded.states";
 
 export const useAuth = () => {
 
-    const [isAuth, setIsAuth] = useState(false);
+    const [loadedState, setLoadedState] = useState(LOADED_STATES.Initial);
 
-    // useEffect(() => {
-    //     if (localStorage.getItem('token')) {
-    //         // UsersApi.getUserInfo()
-    //         setIsAuth(2);
-    //     } else {
-    //         setIsAuth(1);
-    //     }
-    // },[localStorage, localStorage.getItem('token')]);
-
-    const checkAuth = async () => {
-        const user = await UsersApi.getUser();
-        setIsAuth(user);
-        console.log('user', user);
+    // Get user data - for checking congruent route
+    const getUser = async () => {
+        try {
+            const user = await UsersApi.getUser();
+            if (user) {
+                setLoadedState(LOADED_STATES.LoadedUser);
+            } else {
+                setLoadedState(LOADED_STATES.WithoutUser);
+            }
+        } catch (err: any) {
+            setLoadedState(LOADED_STATES.WithoutUser);
+        }
     }
 
     useEffect(() => {
-        checkAuth().then(r => r);
-    },[]);
+        if (localStorage.getItem('token')) {
+            getUser().then(r => r);
+        } else {
+            setLoadedState(LOADED_STATES.WithoutUser);
+        }
+    },[localStorage]);
 
-    return isAuth;
+    return loadedState;
 }

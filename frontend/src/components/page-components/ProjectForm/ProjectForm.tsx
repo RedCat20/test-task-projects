@@ -1,22 +1,24 @@
-import React, {FC, useEffect, useState} from 'react';
-import styles from "../../ui-items/Modal/Modal.module.scss";
+import { FC, useEffect, useState } from 'react';
+import { getCurrentDate } from "../../../helpers/convert.date";
+import { IProject, IProjectDto } from "../../../types/project.types";
+
+import styles from "./ProjectForm.module.scss";
+
 import Input from "../../ui-items/Input/Input";
 import TextArea from "../../ui-items/TextArea/TextArea";
 import ButtonPrimary from "../../ui-items/Buttons/ButtonPrimary/ButtonPrimary";
-import {getCurrentDate} from "../../../helpers/convert.date";
-import {IProject} from "../../../types/project.types";
+
 
 interface Props {
-    info?: IProject;
     setShow: (isShow: boolean) => void;
-    actionText?: string;
-    handler: any;
+    actionText: string;
+    handler: ( {title, description, date}: IProjectDto, id?: string | undefined) => any;
+    info?: IProject;
 }
 
 const ProjectForm:FC<Props> = ({   info,
                                    setShow,
                                    actionText,
-
                                    handler}) => {
 
     const [title, setTitle] = useState('');

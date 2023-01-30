@@ -1,15 +1,13 @@
 import { ChangeEvent, FocusEvent, FC, useState, RefObject } from 'react';
-import styles from './Input.module.scss';
 import { IStyle } from "../../../types/style.types";
+import styles from './Input.module.scss';
 
 interface Props {
-    refer?: RefObject<HTMLInputElement>;
     title?: string;
     name?: string;
     placeholder?: string;
     value?: string | any;
     type?: string;
-    validation?: string;
 
     onChangeValueCallback?: (newValue: string) => void;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -28,7 +26,6 @@ const Input:FC<Props> = ({   onChange,
                              placeholder,
                              value,
                              type,
-                             validation,
                              onChangeValueCallback,
                              fullWidth,
                              marginBottom,

@@ -5,7 +5,6 @@ import {
   addNewProject,
   deleteProjectById,
   updateProjectById,
-  getProjectById
 } from "../controllers/ProjectsCtrl.js";
 
 import { checkAuth, handleValidationErrors } from '../middlewares/middlewares.js';
@@ -20,7 +19,4 @@ router.post('/projects', checkAuth, projectValidator, handleValidationErrors, ad
 router.patch('/projects/:id', checkAuth, projectValidator, handleValidationErrors, updateProjectById);
 
 router.delete('/projects/:id', checkAuth, deleteProjectById);
-
-
-// router.get('/projects/:id', checkAuth, getProjectById);
 

@@ -4,7 +4,6 @@ import { IGetRequestConfig } from "../types/request.config.type";
 
 
 export const ProjectsApi = {
-
     setup() {
         const baseUrl = getBaseUrl();
         const token = localStorage.getItem('token');
@@ -29,8 +28,6 @@ export const ProjectsApi = {
     },
 
     async addProject(dto: IProject) {
-        console.log('dto: ', dto);
-
         const requestConfig: IGetRequestConfig = this.setup();
 
         if (!requestConfig?.config) {

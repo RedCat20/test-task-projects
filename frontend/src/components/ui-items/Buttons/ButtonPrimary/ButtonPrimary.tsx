@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
+import { IStyle } from "../../../../types/style.types";
 import styles from './ButtonPrimary.module.scss';
-import {IStyle} from "../../../../types/style.types";
 
 interface Props {
     children: ReactNode;
@@ -9,7 +9,6 @@ interface Props {
     fullWidth?: boolean;
     height?: number;
     onClickCallback?: () => void;
-
     disabled?: boolean;
 }
 

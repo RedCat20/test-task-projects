@@ -1,16 +1,13 @@
 import { FC, ReactNode, MouseEvent } from 'react';
+import { IStyle } from "../../../../types/style.types";
 import styles from './ButtonLight.module.scss';
-import {IStyle} from "../../../../types/style.types";
 
 interface Props {
     children: ReactNode;
-
     onClick?: (e?: MouseEvent<HTMLElement>) => void;
-
     width?: number;
     fullWidth?: boolean;
     height?: number;
-
     disabled?: boolean;
 }
 

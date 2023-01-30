@@ -1,6 +1,6 @@
 import express from "express";
 
-import { registerUser, loginUser, getUser, getAllUsers } from "../controllers/UsersCtrl.js";
+import { registerUser, loginUser, getUser } from "../controllers/UsersCtrl.js";
 import { registerValidator, loginValidator } from "../validators/validators.js";
 import { handleValidationErrors, checkAuth } from "../middlewares/middlewares.js";
 
@@ -12,6 +12,3 @@ router.post('/register', registerValidator, handleValidationErrors, registerUser
 router.post('/login', loginValidator, handleValidationErrors, loginUser);
 
 router.get('/user', checkAuth, getUser);
-
-
-// router.get('/users', getAllUsers);

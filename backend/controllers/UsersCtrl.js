@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import UserSchema from "../models/User.js";
+import { SECRET_KEY } from '../data.js';
 
 export const loginUser = async (req, res) => {
   try {
@@ -30,7 +31,7 @@ export const loginUser = async (req, res) => {
 
     const token = jwt.sign({
       _id: user._id
-    }, 'secret-projects', {
+    }, SECRET_KEY, {
       expiresIn: '24h',
     })
 
@@ -68,7 +69,7 @@ export const registerUser = async (req, res) => {
 
     const token = jwt.sign({
       _id: user._id
-    }, 'secret-projects', {
+    }, SECRET_KEY, {
       expiresIn: '1d',
     });
 
@@ -104,7 +105,7 @@ export const getUser = async (req, res) => {
     }
 
     try {
-      const decodedToken = jwt.verify(pureToken, 'secret-projects');
+      const decodedToken = jwt.verify(pureToken, SECRET_KEY);
 
       let userId = decodedToken._id;
 
@@ -136,22 +137,5 @@ export const getUser = async (req, res) => {
   } catch (err) {
     console.log('getUserInfo error: ', err);
     return res.status(500).json({ error: 'Can not get current user info' });
-  }
-}
-
-
-export const getAllUsers = async (req, res) => {
-  try {
-    await UserSchema
-      .find()
-      .sort({ email: 1 })
-      .then(users => res.status(200).json(users))
-      .catch((err) => {
-        console.log(err);
-        return res.status(400).json({ success: false, err: err });
-      });
-  } catch (err) {
-    console.log('getAllProjects error: ', err);
-    return res.status(500).json({ success: false, err: 'Getting all users server error' });
   }
 }

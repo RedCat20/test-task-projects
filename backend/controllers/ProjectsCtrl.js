@@ -21,7 +21,9 @@ export const getAllProjects = async (req, res) => {
   try {
     await ProjectSchema
       .find(findObj)
-      .sort({ [sortVal[0] || 'title'] : (sortVal[1] === 'asc' ? 1 : -1) })
+      .sort({
+        [sortVal[0] || 'title'] : (sortVal[1] === 'asc' ? 1 : -1)
+      })
       .then(projects => res.status(200).json(projects))
       .catch((err) => {
         console.log(err);
@@ -36,8 +38,6 @@ export const getAllProjects = async (req, res) => {
 
 
 export const addNewProject = async (req, res) => {
-  console.log('addNewProject');
-
   try {
     let { title, description, date } = req.body;
 
@@ -84,10 +84,7 @@ export const updateProjectById = async (req, res) => {
 
     let { title, description } = req.body;
 
-    // чомусь вертає минулий, хоча в базі вже є нормальний новий
     const project = await ProjectSchema.findByIdAndUpdate(projectId, { title, description }, {new: true});
-
-    console.log('project: ', project);
 
     if (project) {
       return res.status(200).json(project);
@@ -98,25 +95,5 @@ export const updateProjectById = async (req, res) => {
   catch(err) {
     console.log('updateProjectById error: ', err);
     return res.status(500).json({ success: false, err: 'Updating project server error' });
-  }
-}
-
-
-
-export const getProjectById = async (req, res) => {
-  try {
-    const projectId = req.params.id;
-
-    const project = await ProjectSchema.findById(projectId);
-
-    if (project) {
-      return res.status(200).json(project);
-    } else {
-      return res.status(404).json({success: false, err: 'Project not found'});
-    }
-
-  } catch(err) {
-    console.log('getProjectById error: ', err);
-    return res.status(500).json({ success: false, err: 'Getting project item server error' });
   }
 }

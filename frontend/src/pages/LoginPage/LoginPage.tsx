@@ -1,5 +1,5 @@
-import styles from './LoginPage.module.scss';
 import { FC } from "react";
+import styles from './LoginPage.module.scss';
 import Login from "../../components/page-components/Login/Login";
 
 const LoginPage:FC = () => {
