@@ -13,7 +13,8 @@ export const UsersApi = {
             if (error.response) {
                 throw new Error(error.response.data.error);
             } else if (error.request) {
-                throw new Error(error.request);
+                console.log('Error', error.request);
+                throw new Error('Server error or bad request');
             } else {
                 throw new Error(error.message);
             }
@@ -30,7 +31,8 @@ export const UsersApi = {
             if (error.response) {
                 throw new Error(error.response.data.error);
             } else if (error.request) {
-                throw new Error(error.request);
+                console.log('Error', error.request);
+                throw new Error('Server error or bad request');
             } else {
                 throw new Error(error.message);
             }
@@ -51,7 +53,8 @@ export const UsersApi = {
             if (error.response) {
                 throw new Error(error.response.data.error);
             } else if (error.request) {
-                throw new Error(error.request);
+                console.log('Error', error.request);
+                throw new Error('Server error or bad request');
             } else {
                 throw new Error(error.message);
             }
