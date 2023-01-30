@@ -1,0 +1,14 @@
+# dependencies
+/backend/node_modules
+/frontend/node_modules
+
+# production
+/backend/build
+/frontend/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

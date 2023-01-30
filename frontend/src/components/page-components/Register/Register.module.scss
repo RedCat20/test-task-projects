@@ -1,0 +1,70 @@
+.container {
+  width: 582px;
+  max-width: 100%;
+
+  padding: 80px;
+  @media screen and (max-width: 575px) {
+    padding: 30px 5px;
+  }
+
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+.content {
+  width: 266px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: InterSemiBold, sans-serif;
+
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-family: InterLight, sans-serif;
+
+  font-size: 12px;
+  line-height: 20px;
+  color: #A2A4B5;
+
+  margin-bottom: 20px;
+
+  a {
+    color: #9283D2;
+    text-decoration: none;
+    font-weight: 600;
+  }
+}
+
+.form {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.fieldset {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,31 @@
+.button {
+  height: 42px;
+  width: 100%;
+  max-width: 100%;
+
+  background: linear-gradient(90deg, #93B1F9 -3.95%, #9278C9 103.95%);
+  border-radius: 5px;
+  border-color: transparent;
+  border-width: 0;
+
+  font-family: InterSemiBold, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    &:hover {
+      cursor: initial;
+    }
+  }
+
+  &:focus, &:active, &:focus-within, &:focus-visible {
+    outline: none;
+  }
+}

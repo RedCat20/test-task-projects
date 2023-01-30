@@ -1,0 +1,56 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 33px 20px;
+
+  button {
+    @media screen and (max-width: 575px) {
+      max-width: 50%;
+    }
+  }
+}
+
+.logo {
+  height: 63px;
+  width: 205px;
+
+  @media screen and (max-width: 575px) {
+    // height: 47px;
+    width: 94px;
+    text-transform: capitalize;
+    font-family: InterSemiBold, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  background: linear-gradient(84.12deg, #93AEF7 3.54%, #927BCC 108.01%);
+  border: 1px solid #93AEF7;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > img {
+    margin-right: 8px;
+  }
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
